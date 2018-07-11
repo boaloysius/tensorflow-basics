@@ -31,3 +31,32 @@ sess = tf.Session(graph=g2)
 sess = tf.interactiveSession()
 x.eval() // So I need not specify which session to use to evaluate
 
+// Print shape of tensor
+print(x.get_shape().as_list())
+
+// Reshaping a tensor
+tf.reshape(z,[ksize,1]) 
+// making a onedimensional vector a row vector.
+
+// Creating a 2D matrix in tensorflow
+z_2d = tf.matmul(tf.reshape(z,[ksize,1]), tf.reshape(z, [1, ksize]))
+
+plt.imshow(z_2d.eval())
+
+// Convolution using camera man image in skimage
+
+//import skimage
+from skimage import data
+
+image = data.camera().astype(np.float32)
+plt.imshow(image, cmap='gray')
+
+// When we perform convolution in tensorflow, we need image to be 4D
+
+convolved = tf.nn.conv2d(img_4d, z_4d, strides=[1,1,1,1], padding = 'SAME')
+
+// strides can be [1,1,1,1] or [1,2,2,1]
+// in [1,2,2,1] every other pixel is skipped in the image array and convolve every other pixel. This has the effect of down sampling the image
+
+// padding "SAME" means the same dimensions come out as that of the going in ones.
+
