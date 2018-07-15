@@ -1,0 +1,8 @@
+TF-IDF Term Fre	uency - Inverse Document Frequency: Words that appear in may documents are probably less meaningful
+tfidf = word count / document count.
+In practise we may use some log and smoothening
+
+Word Analogy:
+1) King - Queen = Prince - Princess
+2) Japan - Japanese = China - Chinese
+

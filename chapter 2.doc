@@ -1,0 +1,5 @@
+//Create a random normal function in tensorflow
+
+m = tf.random_normal([10],stddev=0.1).eval()
+
+Unlike placeholder we need not define the value of variable at the start of run or eval
