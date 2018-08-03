@@ -88,6 +88,8 @@ Logistic Regression:
 		eg: I just love milk
 			I want to milk the vistim of her money
 
+Can we do better by using the sequence/context?
+
 Recurrent Neural Network
 	It has a loop back in the hidden layer
 	GRU and LSTM are modetn RNN
@@ -105,3 +107,33 @@ Left most derivative, Right most derivative
 ID3
 -P/(P+N) log(P|P+N) - N|(P+N) log(N|P+N)
 Maximum Gain
+
+
+
+
+
+
+
+
+RNN for NLP
+As humans, how we understand really big sentences?
+We divide the sentence and create a hierarchical structure.
+
+How do we represent sentence as a tree?
+1. Plain recursive Net: Linear Transformtion 
+2. Recursive neural tensor network: Quadratic Transformation
+
+
+How do we create neural networks?
+1. We create separate symbolic graph for each sentence in the data. Beacause each sentence has a different tree structure. 'N' different data points means, N different neural networks are required. These neural Networks have shared weights. 
+2. Implementing recursive neural network as a custom build recurrent network
+	Tree traversal (Inorder, Pre order, Post order) allows us to convert tree to sequence. 
+	RNNs handle sequences of different lengths.
+	Don't need separate RNNs for each samples.
+
+Sentences can be represented as trees using parts of speech tagging.
+
+Bag of words can't handle negation.
+
+We create only binary trees and each node will have either two children or no children at all.
+Only leaf node represent words, all other nodes represents words.
