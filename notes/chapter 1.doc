@@ -1,0 +1,68 @@
+x=tf.linspace(-3.0,3.0,100)
+//Tensor("LinSpace_1:0", shape=(100,), dtype=float32)
+
+// Checking the graph
+g=tf.get_default_graph()
+[op.name for op in g.get_operations()]
+g.get_tensor_by_name('LinSpace_1'+':0')
+
+sess = tf.Session()
+
+computed_x = sess.run(x)
+print(computed_x)
+
+OR
+
+computed_x = x.eval(session=sess)
+print(computed_x)
+
+sess.close()
+
+// We can specify which graph to use when we create a session
+sess = tf.Session(graph=tf.default_graph())
+
+// By default the graph is default_graph
+// We can create a new graph and create a session to use this graph
+
+g2 = tf.Graph()
+sess = tf.Session(graph=g2)
+
+// I can create an interactive session
+sess = tf.interactiveSession()
+x.eval() // So I need not specify which session to use to evaluate
+
+// Print shape of tensor
+print(x.get_shape().as_list())
+
+// Reshaping a tensor
+tf.reshape(z,[ksize,1]) 
+// making a onedimensional vector a row vector.
+
+// Creating a 2D matrix in tensorflow
+z_2d = tf.matmul(tf.reshape(z,[ksize,1]), tf.reshape(z, [1, ksize]))
+
+plt.imshow(z_2d.eval())
+
+// Convolution using camera man image in skimage
+
+//import skimage
+from skimage import data
+
+image = data.camera().astype(np.float32)
+plt.imshow(image, cmap='gray')
+
+// When we perform convolution in tensorflow, we need image to be 4D
+
+convolved = tf.nn.conv2d(img_4d, z_4d, strides=[1,1,1,1], padding = 'SAME')
+
+// strides can be [1,1,1,1] or [1,2,2,1]
+// in [1,2,2,1] every other pixel is skipped in the image array and convolve every other pixel. This has the effect of down sampling the image
+
+// padding "SAME" means the same dimensions come out as that of the going in ones.
+
+// Placeholders
+// They are elements that can be specified latter. We are not sure what these are yet but we know they fit into the graph. Generally these are the input and the output of the network.
+img = tf.placeholder(tf.float32,shape=[None, None], name = 'img')
+
+res = convolved_img.eval(feed_dict={
+    img: data.camera(), mean:0.0, sigma:1.0, ksize:100})

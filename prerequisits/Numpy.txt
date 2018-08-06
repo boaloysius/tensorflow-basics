@@ -1,0 +1,50 @@
+>> The plus sign "+"
+	For python lists, "+" sign does concatenation.
+		eg: 
+		In [10]: a=[1,2,3,4,5]
+		In [11]: a+a
+		Out[11]: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5] 
+
+	For numpy arrays, 
+		"+" sign does vector addition for 1D array.
+		eg: 
+			In [12]: b=np.array([1,2,3,4,5])
+			In [13]: b+b
+			Out[13]: array([ 2,  4,  6,  8, 10])
+
+		"+" sign does matrix addition for matrix
+
+>>	
+	python list
+	In [16]: a*2
+	Out[16]: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+	
+	numpy array
+	In [15]: b*2
+	Out[15]: array([ 2,  4,  6,  8, 10])
+
+>>
+	python list
+	a**2 doesn't work
+
+	numpy array
+	In [18]: b**2
+	Out[18]: array([ 1,  4,  9, 16, 25])
+
+>>
+	In [20]: 2**b
+	Out[20]: array([ 2,  4,  8, 16, 32])
+
+>>
+	In [22]: np.sqrt(b)
+	Out[22]: array([ 1.        ,  1.41421356,  1.73205081,  2. ,  2.23606798])
+
+>>
+	In [23]: np.log(b)
+	Out[23]: array([ 0.        ,  0.69314718,  1.09861229,  1.38629436,  1.60943791])
+
+>>
+	In [24]: np.exp(b)
+	Out[24]: 
+	array([   2.71828183,    7.3890561 ,   20.08553692,   54.59815003,  148.4131591 ])
+
