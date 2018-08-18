@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # import mnist data to dataframe
 # labels are stored in labels column
-df = pd.read_csv("files/mnist/train.csv")
+df = pd.read_csv("../../files/mnist/train.csv")
 
 label = 2
 
